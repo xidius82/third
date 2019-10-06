@@ -1,3 +1,4 @@
-<h1>
-  <input [textMask]="{mask: mask}" [(ngModel)]="myModel" type="text" placeholder="999 9999999999" (focusout)="focusOutFunction()">
-</h1>
+
+<mat-form-field class="example-full-width">
+  <input matInput [textMask]="{mask: mask}" [(ngModel)]="myModel" placeholder="999 9999999999" >
+</mat-form-field>
