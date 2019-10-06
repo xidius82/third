@@ -1,15 +1,21 @@
 import { Component } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.sass']
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
   myModel;
   mask = [/[1-9]/, /[1-9]/, /[1-9]/, ' ', /[1-9]/, /[1-9]/, /[1-9]/, /[1-9]/, /[1-9]/, /[1-9]/, /[1-9]/, /[1-9]/, /[1-9]/, /[1-9]/];
 
-  focusOutFunction (){
-    console.log(this.myModel.replace(/\D+/g, ''));
-  }
+  myControl: FormControl = new FormControl();
+  options = [
+    'One',
+    'Two',
+    'Three'
+   ];
+
+
 }
