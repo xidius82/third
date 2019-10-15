@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -7,15 +7,26 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  myModel;
-  mask = [/[1-9]/, /[1-9]/, /[1-9]/, ' ', /[1-9]/, /[1-9]/, /[1-9]/, /[1-9]/, /[1-9]/, /[1-9]/, /[1-9]/, /[1-9]/, /[1-9]/, /[1-9]/];
 
-  myControl: FormControl = new FormControl();
-  options = [
-    'One',
-    'Two',
-    'Three'
-   ];
+  formdata;
+
+  constructor(){
+    this.formdata= new FormGroup({
+      email: new FormControl(null)
+    });
+  }
+
+
+
+  onSubmit(data):boolean | any{
+
+    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    if (!re.test(String(data.email).toLowerCase())) {
+      data.email.setErrors({'incorrect': true});
+    }
+  }
+
+
 
 
 }

@@ -1,25 +1,10 @@
+<form [formGroup]="formdata" (ngSubmit)="onFormSubmit(formdata.value)">
+    <mat-form-field class="mat-input">
+        <input matInput type="text" formControlName="email">
+        <mat-error>
+            <span>Indirizzo email non valido</span>
+        </mat-error>
+    </mat-form-field>
+    <div><button type="submit" [disabled]="email.errors && email.errors.required">Prosegui</button></div>
 
-<div fxLayout="column" fxLayout.xs="column" fxLayoutAlign="space-around stretch" fxFill>
-  <input matInput [textMask]="{mask: mask}" [(ngModel)]="myModel" placeholder="999 9999999999" >
-
-  <mat-divider></mat-divider>
-  <!-- Solution ----------------------------------------------------------------------->
-  <mat-card fxFlex fxLayoutAlign="start center" fxLayout="column" class="solution"
-            [style.borderRadius.px]="'0'"  [style.paddingTop.px]="'60'">
-
-    <!-- Solution to your problem here ------------------------------------------------>
-    <form class="example-form">
-      <mat-form-field class="example-full-width">
-        <input type="text" placeholder="Pick one" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
-        <mat-autocomplete #auto="matAutocomplete">
-          <mat-option *ngFor="let option of options" [value]="option">
-            {{ option }}
-          </mat-option>
-        </mat-autocomplete>
-      </mat-form-field>
-      <button mat-raised-button color="accent">Click Me!</button>
-    </form>
-    <!--------------------------------------------------------------------------------->
-
-  </mat-card>
-</div>
+</form>
