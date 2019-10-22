@@ -8,14 +8,73 @@ import { FormGroup, Validators, FormControl, FormBuilder } from '@angular/forms'
 })
 export class AppComponent  implements OnInit{
   formGroup:FormGroup;
+  disabled:boolean;
+  stringa:string;
 
   constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit(){
+    this.disabled = true;
+    this.stringa = "Modifica";
     this.formGroup = new FormGroup({
-      'email': new FormControl(null)})
+      'input': new FormControl('aaa'),
+      'input1': new FormControl('bbbb'),
+      'input2': new FormControl('cccc'),
+      'input3': new FormControl('dddd'),
+      'input4': new FormControl('eeee'),
+      'input5': new FormControl('ffff'),
+      'input6': new FormControl('gggg'),
+      'input7': new FormControl('hhhh'),
+      'input8': new FormControl('iiii'),
+      'input9': new FormControl('lllll'),
+      'input10': new FormControl('mmmm'),
+
+    })
+
+   
+    this.control();
     
-    
+    }
+
+    setControl(){
+      if (this.disabled==true){
+        this.disabled=false;
+      }
+      else 
+      {this.disabled=true;}
+      this.control();
+    }
+
+    control(){
+      if (this.disabled==true){
+        this.stringa = "Modifica";
+        this.formGroup.controls['input'].disable();
+        this.formGroup.controls['input1'].disable();
+        this.formGroup.controls['input2'].disable();
+        this.formGroup.controls['input3'].disable();
+        this.formGroup.controls['input4'].disable();
+        this.formGroup.controls['input5'].disable();
+        this.formGroup.controls['input6'].disable();
+        this.formGroup.controls['input7'].disable();
+        this.formGroup.controls['input8'].disable();
+        this.formGroup.controls['input9'].disable();
+        this.formGroup.controls['input10'].disable();
+      }
+      else {
+        this.stringa = "Annulla";
+        this.formGroup.controls['input'].enable();
+        this.formGroup.controls['input1'].enable();
+        this.formGroup.controls['input2'].enable();
+        this.formGroup.controls['input3'].enable();
+        this.formGroup.controls['input4'].enable();
+        this.formGroup.controls['input5'].enable();
+        this.formGroup.controls['input6'].enable();
+        this.formGroup.controls['input7'].enable();
+        this.formGroup.controls['input8'].enable();
+        this.formGroup.controls['input9'].enable();
+        this.formGroup.controls['input10'].enable();
+      }
+
     }
 
     onSubmit(data){
