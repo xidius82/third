@@ -17,17 +17,60 @@ export class AppComponent  implements OnInit{
   mm = '07';
   aa = '82';
 
+  select=[];
+
   constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit(){
 
     this.formGroup = new FormGroup({
       'input': new FormControl(null),
-      'pin': new FormControl(null)
+      'pin': new FormControl(null),
+      selected: new FormControl([null]),
+    selected1: new FormControl([null]),
+
 
     })
     this.formGroup.get('pin').disable();
   }
+
+  options = [
+    {
+      display: 'RM',
+      value: '1'
+    }, {
+      display: 'MI',
+      value: '2'
+    }
+  ];
+
+  options1 = [
+    {
+      display: 'Roma',
+      idOption: 1,
+      value: '1'
+    }, {
+      display: 'Frascati',
+      idOption: 1,
+      value: '2'
+    }, {
+      display: 'Rocca di Papa',
+      idOption: 1,
+      value: '3'
+    }, {
+      display: 'Monza',
+      idOption: 2,
+      value: '4'
+    }, {
+      display: 'Lecco',
+      idOption: 2,
+      value: '5'
+    }, {
+      display: 'Como',
+      idOption: 2,
+      value: '6'
+    }
+  ];
 
     control(data){
       this.wrongTest1 = null;
@@ -103,6 +146,14 @@ export class AppComponent  implements OnInit{
      }
 
     }
+
+    getSelectedOptions(event){
+
+      this.select = this.options1.filter((item) => {
+          return (item.idOption == this.formGroup.controls['selected'].value)
+        });
+
+      }
 
     onSubmit(data){
       alert('ok');
