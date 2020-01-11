@@ -39,16 +39,15 @@ import {LOCAL_STORAGE, WebStorageService, StorageServiceModule} from 'angular-we
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SummaryComponent } from './summary/summary.component';
-import { AutocompleteComponent } from './autocomplete/autocomplete.component';
-import { PopupErrorComponent } from './popup-error/popup-error.component';
+import { FirstComponent } from './components/first/first.component';
+import { ModalObject } from './modals/modal-object';
+import { SanitizeHtmlPipe } from './pipes/sanitize';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SummaryComponent,
-    AutocompleteComponent,
-    PopupErrorComponent
+    FirstComponent,
+    SanitizeHtmlPipe
   ],
   imports: [
     MatAutocompleteModule,
@@ -122,7 +121,7 @@ import { PopupErrorComponent } from './popup-error/popup-error.component';
     MatTooltipModule,
     MatStepperModule,
   ],
-  providers: [],
+  providers: [ModalObject],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
