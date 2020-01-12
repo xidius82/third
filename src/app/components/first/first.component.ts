@@ -2,6 +2,7 @@ import { Component, OnInit, ElementRef, ChangeDetectorRef, AfterViewInit } from 
 import { ModalObject } from 'src/app/modals/modal-object';
 import { SanitizeHtmlPipe } from 'src/app/pipes/sanitize';
 import { DomSanitizer } from '@angular/platform-browser';
+import { MatDialogRef } from '@angular/material';
 
 
 @Component({
@@ -16,7 +17,8 @@ export class FirstComponent implements OnInit, AfterViewInit {
 
   ciao;
 
-  constructor(private domSanitizer:DomSanitizer, private elRef:ElementRef, private cdRef:ChangeDetectorRef) { }
+  constructor(private domSanitizer:DomSanitizer,
+    private elRef:ElementRef, private cdRef:ChangeDetectorRef, public dialogRef: MatDialogRef<FirstComponent>) { }
 
    modalObject= new  ModalObject();
    pipe = new SanitizeHtmlPipe(this.domSanitizer);
@@ -28,6 +30,10 @@ export class FirstComponent implements OnInit, AfterViewInit {
 
   call(){
     alert('ciaooo');
+  }
+
+  closeModal() {
+    this.dialogRef.close();
   }
 
 }
