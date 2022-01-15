@@ -55,7 +55,7 @@
     "tslint": "5.15.0",
     "typescript": "3.5.3",
     "sass": "1.23.3",
-    "shelljs": "0.8.3",
+    "shelljs": "0.8.5",
     "lite-server": "2.4.0"
   }
 }
